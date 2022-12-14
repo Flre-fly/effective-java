@@ -1,9 +1,15 @@
 package org.example.ch02;
 
 public class PercentDiscountPolicy extends DiscountPolicy{
+    private double percent;
+
+    public PercentDiscountPolicy(double percent, DiscountCondition ... conditions) {
+        super(conditions);
+        this.percent = percent;
+    }
 
     @Override
-    void discount(Movie movie, int discount) {
-        movie.discountByPercent(discount);
+    protected double getDiscountAmount(Screening screening) {
+        return screening.getMovieFee() * percent/100;
     }
 }

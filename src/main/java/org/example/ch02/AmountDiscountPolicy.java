@@ -1,8 +1,10 @@
 package org.example.ch02;
 
 public class AmountDiscountPolicy extends DiscountPolicy{
+    private int discountAmount;
     @Override
-    void discount(Movie movie, int amount) {
-        movie.discountByAmount(amount);
+    public double getDiscountAmount(Screening screening){
+        return discountAmount;
     }
+
 }

@@ -5,8 +5,8 @@ import java.time.Duration;
 
 public class SequenceCondition extends DiscountCondition{
 
-    boolean isSatisfied(Screening screening, int sequence ){
-        if(screening.withinTheSequence(sequence)) return true;
-        else return false;
+    private int sequence; // 순번
+    boolean isSatisfied(Screening screening){
+        return screening.isSequence(sequence);
     }
 }
