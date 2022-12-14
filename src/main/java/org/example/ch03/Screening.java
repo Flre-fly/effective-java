@@ -8,8 +8,8 @@ public class Screening {
     private LocalDateTime whenScreened;
 
 
-    public double returnMovieFee(){
-        return movie.returnMovieFee();
+    public double returnMovieFee(LocalDateTime whenScreened, int sequence){
+        return movie.returnMovieFee(whenScreened, sequence);
     }
     public Movie getMovie() {
         return movie;

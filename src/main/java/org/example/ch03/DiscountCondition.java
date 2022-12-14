@@ -15,7 +15,11 @@ public class DiscountCondition {
     public DiscountConditionType getType() {
         return type;
     }
+    public boolean isDiscountable(DayOfWeek dayOfWeek, LocalTime time) {
+        return true;
+    }
 
+    public boolean isDiscountable(int sequence) {  return true;}
 
     public void setType(DiscountConditionType type) {
         this.type = type;

@@ -1,6 +1,9 @@
 package org.example.ch03;
 
+import java.time.DayOfWeek;
 import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Collections;
 import java.util.List;
 
@@ -14,8 +17,8 @@ public class Movie {
     private double discountAmount;
     private double discountPercent;
 
-    public double returnMovieFee(){
-        if (isDiscount()) { // 할인 여부
+    public double returnMovieFee(LocalDateTime whenScreened, int sequence){
+        if (isDiscount(whenScreened, sequence)) { // 할인 여부
             double discountAmount = 0;
             // 할인 정책에 따라 예매 요금 계산
             switch(getMovieType()) {
@@ -33,20 +36,24 @@ public class Movie {
         }
         return fee;
     }
-    public boolean isDiscount(){
+    public boolean isDiscount(LocalDateTime whenScreened, int sequence){
         boolean discountable = false;
         for (DiscountCondition condition : getDiscountConditions()) {
             if (condition.getType() == DiscountConditionType.PERIOD) {
-                // 기간 조건
+                //내부구현을 discountcondition이 하도록 하였다.
+                //이 코드여도 period말고 다른 명칭이 된다면 movie를 수정해야한다
+                if (condition.isDiscountable(whenScreened.getDayOfWeek(), whenScreened.toLocalTime())) {
+                    return true;
+                }
             } else {
-                // 순번 조건
+                if (condition.isDiscountable(sequence)) {
+                    return false;
+                }
             }
 
-            if (discountable) {
-                break;
-            }
+
         }
-        return discountable;
+        return false;
 
     }
     public MovieType getMovieType() {
