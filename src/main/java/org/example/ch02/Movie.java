@@ -13,6 +13,13 @@ public class Movie {
 
     //할인정책을 처음에 생성자로 넣어준다
 
+    public double calculateMovieFee(Screening screening) {
+        if (discountPolicy == null) {
+            return fee;
+        }
+
+        return fee - discountPolicy.calculateDiscountAmount(screening);
+    }
     public int discountByAmount(int amount){
         return fee - amount;
     }
