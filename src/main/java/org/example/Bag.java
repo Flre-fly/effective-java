@@ -8,6 +8,16 @@ public class Bag {
     public Bag (long amount) {// 현금만
         this(null, amount);
     }
+    public Long hold(Ticket ticket){
+        if (hasInvitation()) {
+            setTicket(ticket);
+            return 0L;
+        } else {
+            setTicket(ticket);
+            minusAmount(ticket.getFee());
+            return ticket.getFee();
+        }
+    }
 
     public Bag(Invitation invitation, long amount) { // 초대장과 현금
         this.invitation = invitation;
