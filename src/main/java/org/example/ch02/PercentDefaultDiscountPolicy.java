@@ -8,6 +8,10 @@ public class PercentDefaultDiscountPolicy extends DefaultDiscountPolicy {
         this.percent = percent;
     }
 
+    public PercentDefaultDiscountPolicy() {
+        super();
+    }
+
     @Override
     protected double getDiscountAmount(Screening screening) {
         return screening.getMovieFee() * percent/100;
