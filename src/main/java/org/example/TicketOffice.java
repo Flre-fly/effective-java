@@ -12,6 +12,10 @@ public class TicketOffice {
         this.amount = amount;
         this.tickets.addAll(Arrays.asList(tickets));
     }
+    public void toSell(Audience audience){
+        plusAmount(getTicket().spendAmount(audience)); // 판매원이 돈을 받는다.
+    }
+
     public Ticket getTicket() {
         return tickets.remove(0); // 편의를 위해 tickets 컬렉션의 맨 첫 번째 위치에 저장된 티켓을 반환
     }
