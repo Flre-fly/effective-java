@@ -11,6 +11,10 @@ public class Movie {
     private double fee; // 기본 요금
     private DiscountPolicy discountPolicy; // 할인 정책
 
+    //확장을 사용했기 때문에 런타임에 객체를 교체할 수 있음
+    public void changeDiscountPolicy(DiscountPolicy discountPolicy) {
+        this.discountPolicy = discountPolicy;
+    }
 
     public Movie(String title, Duration runningTime, double fee, DiscountPolicy discountPolicy) {
         this.title = title;
