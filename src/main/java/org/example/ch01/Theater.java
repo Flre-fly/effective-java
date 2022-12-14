@@ -1,4 +1,4 @@
-package org.example;
+package org.example.ch01;
 
 public class Theater {
     private TicketSeller ticketSeller;

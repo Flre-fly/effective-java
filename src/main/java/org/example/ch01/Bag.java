@@ -1,4 +1,4 @@
-package org.example;
+package org.example.ch01;
 
 public class Bag {
     private Long amount; // 현금
