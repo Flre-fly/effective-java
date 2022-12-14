@@ -7,6 +7,10 @@ public class Screening {
     private int sequence;
     private LocalDateTime whenScreened;
 
+
+    public double returnMovieFee(){
+        return movie.returnMovieFee();
+    }
     public Movie getMovie() {
         return movie;
     }

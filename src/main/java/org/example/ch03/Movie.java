@@ -14,6 +14,41 @@ public class Movie {
     private double discountAmount;
     private double discountPercent;
 
+    public double returnMovieFee(){
+        if (isDiscount()) { // 할인 여부
+            double discountAmount = 0;
+            // 할인 정책에 따라 예매 요금 계산
+            switch(getMovieType()) {
+                case AMOUNT_DISCOUNT:
+                    // 금액 할인 정책
+                case PERCENT_DISCOUNT:
+                    // 할인 비율
+                case NONE_DISCOUNT:
+                    // 할인 정책이 적용 x
+            }
+
+            fee = getFee() - discountAmount;
+        } else {
+            fee = getFee();
+        }
+        return fee;
+    }
+    public boolean isDiscount(){
+        boolean discountable = false;
+        for (DiscountCondition condition : getDiscountConditions()) {
+            if (condition.getType() == DiscountConditionType.PERIOD) {
+                // 기간 조건
+            } else {
+                // 순번 조건
+            }
+
+            if (discountable) {
+                break;
+            }
+        }
+        return discountable;
+
+    }
     public MovieType getMovieType() {
         return movieType;
     }
