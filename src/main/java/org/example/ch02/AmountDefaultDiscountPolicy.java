@@ -1,6 +1,6 @@
 package org.example.ch02;
 
-public class AmountDiscountPolicy extends DiscountPolicy{
+public class AmountDefaultDiscountPolicy extends DefaultDiscountPolicy {
     private int discountAmount;
     @Override
     public double getDiscountAmount(Screening screening){

@@ -1,23 +1,22 @@
 package org.example;
 
-import org.example.ch02.AmountDiscountPolicy;
+import org.example.ch02.AmountDefaultDiscountPolicy;
 import org.example.ch02.Movie;
-import org.example.ch02.NoneDiscountPolicy;
-import org.example.ch02.PercentDiscountPolicy;
-import org.w3c.dom.Node;
+import org.example.ch02.NoneDefaultDiscountPolicy;
+import org.example.ch02.PercentDefaultDiscountPolicy;
 
 import java.time.Duration;
 
 public class Main {
     public static void main(String[] args) {
-        Movie starWas = new Movie("스타워즈", Duration.ofMinutes(210), 2000, new NoneDiscountPolicy());
+        Movie starWas = new Movie("스타워즈", Duration.ofMinutes(210), 2000, new NoneDefaultDiscountPolicy());
 
         //합성
         Movie avatar = new Movie("아바타",
                 Duration.ofMinutes(120),
                 200,
-                new AmountDiscountPolicy());
+                new AmountDefaultDiscountPolicy());
 
-        avatar.changeDiscountPolicy(new PercentDiscountPolicy(0.1));
+        avatar.changeDiscountPolicy(new PercentDefaultDiscountPolicy(0.1));
     }
 }
