@@ -30,7 +30,7 @@ public class Screening {
         return this.sequence == sequence;
     }
 
-    public int getMovieFee() { // 기본 요금을 반환
+    public double getMovieFee() { // 기본 요금을 반환
         return movie.getFee();
     }
 }
