@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.tocompotision.Child;
+
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -28,11 +30,7 @@ class CustomSet<E> extends HashSet<E> {
 
 public class Main {
     public static void main(String[] args) {
-        CustomSet<String> mySet = new CustomSet<>();
-
-        mySet.addAll(Arrays.asList("가", "나", "다", "라", "마"));
-        mySet.add("바");
-
-        System.out.println(mySet.getAddCount()); // ! 6이 나와야 정상이지만 11이 나오게 된다.
+        Child child = new Child();
+        child.A();
     }
 }
