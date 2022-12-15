@@ -15,8 +15,20 @@ public class DiscountCondition {
     public DiscountConditionType getType() {
         return type;
     }
+    //할인 조건이 여러개 추가될 경우
     public boolean isDiscountable(DayOfWeek dayOfWeek, LocalTime time) {
-        return true;
+        //할인 조건별로 할인 여부를 판단하는 방법이 변경될 경우
+        if(type.equals(DiscountConditionType.PERIOD)){
+            //야러 로직~
+            return true;
+        }
+        else if(type.equals(DiscountConditionType.SEQUENCE)){
+            return false;
+        }
+        else{
+            return true;
+        }
+
     }
 
     public boolean isDiscountable(int sequence) {  return true;}
