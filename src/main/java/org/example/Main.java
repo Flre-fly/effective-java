@@ -1,24 +1,22 @@
 package org.example;
-
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Set;
 
-class CustomSet<E> extends HashSet<E> {
+class CustomSet<E> {
     private int addCount = 0; // 자료형에 몇번 추가되었는지 세는 카운트 변수
+    private Set<E> set = new HashSet<>(); // 합성
 
-    @Override
     public boolean add(E e) {
-        // 만일 add되면 카운트를 증가 시키고, 부모 클래스 HashSet의 add() 메소드를 실행한다.
         addCount++;
-        return super.add(e);
+        //set의 인스턴스를 원래껄 줌으로써 진짜 자신의 add를 가리키게 됨
+        return set.add(e); // 합성된 객체의 메서드를 실행
     }
 
-    @Override
     public boolean addAll(Collection<? extends E> c) {
-        // 만일 리스트 자체로 들어와 통쨰로 add 한다면, 컬렉션의 사이즈를 구해 카운트에 더하고, 부모 클래스 HashSet의 addAll() 메소드를 실행한다.
         addCount += c.size();
-        return super.addAll(c);
+        return set.addAll(c); // 합성된 객체의 메서드를 실행
     }
 
     public int getAddCount() {
@@ -33,7 +31,6 @@ public class Main {
         mySet.addAll(Arrays.asList("가", "나", "다", "라", "마"));
         mySet.add("바");
 
-        System.out.println(mySet.getAddCount()); // ! 6이 나와야 정상이지만 11이 나오게 된다.
-
+        System.out.println(mySet.getAddCount()); // 6
     }
 }
